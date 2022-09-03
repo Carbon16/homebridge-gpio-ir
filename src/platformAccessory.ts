@@ -26,9 +26,9 @@ export class GIRPlatformAccessory {
 
     // set accessory information
     this.accessory.getService(this.platform.Service.AccessoryInformation)!
-      .setCharacteristic(this.platform.Characteristic.Manufacturer, 'Default-Manufacturer')
-      .setCharacteristic(this.platform.Characteristic.Model, 'Default-Model')
-      .setCharacteristic(this.platform.Characteristic.SerialNumber, 'Default-Serial');
+      .setCharacteristic(this.platform.Characteristic.Manufacturer, 'NOIDEA')
+      .setCharacteristic(this.platform.Characteristic.Model, 'doot')
+      .setCharacteristic(this.platform.Characteristic.SerialNumber, '0001');
 
     // get the LightBulb service if it exists, otherwise create a new LightBulb service
     // you can create multiple services for each accessory
