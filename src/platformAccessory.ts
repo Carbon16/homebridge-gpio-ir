@@ -50,6 +50,9 @@ export class GIRPlatformAccessory {
     this.service.getCharacteristic(this.platform.Characteristic.Brightness)
       .onSet(this.setBrightness.bind(this));       // SET - bind to the 'setBrightness` method below
 
+    this.service.getCharacteristic(this.platform.Characteristic.Hue)
+      .onSet(this.setHue.bind(this));
+
     /**
      * Creating multiple services of the same type.
      *
@@ -138,4 +141,10 @@ export class GIRPlatformAccessory {
     this.platform.log.debug('Set Characteristic Brightness -> ', value);
   }
 
+  async setHue(value: CharacteristicValue) {
+    // implement your own code to set the brightness
+    this.exampleStates.Brightness = value as number;
+
+    this.platform.log.debug('Set Characteristic Brightness -> ', value);
+  }
 }
