@@ -1,9 +1,9 @@
 /**
  * This is the name of the platform that users will use to register the plugin in the Homebridge config.json
  */
-export const PLATFORM_NAME = 'IR-BLASTER';
+export const PLATFORM_NAME = 'homebridge-gpio-ir';
 
 /**
  * This must match the name of your plugin as defined the package.json
  */
-export const PLUGIN_NAME = 'homebridge-ir-blaster';
+export const PLUGIN_NAME = 'homebridge-gpio-ir';
