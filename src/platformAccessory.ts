@@ -48,8 +48,8 @@ export class GIRPlatformAccessory {
       .onGet(this.getOn.bind(this));               // GET - bind to the `getOn` method below
 
     // register handlers for the Brightness Characteristic
-    this.service.getCharacteristic(this.platform.Characteristic.Brightness)
-      .onSet(this.setBrightness.bind(this));       // SET - bind to the 'setBrightness` method below
+    // this.service.getCharacteristic(this.platform.Characteristic.Brightness)
+    //   .onSet(this.setBrightness.bind(this));       // SET - bind to the 'setBrightness` method below
 
     this.service.getCharacteristic(this.platform.Characteristic.Hue)
       .onSet(this.setHue.bind(this));
