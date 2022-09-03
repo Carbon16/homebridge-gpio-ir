@@ -19,6 +19,11 @@ export class GIRPlatformAccessory {
     Brightness: 100,
   };
 
+  private exampleHue = {
+    On: false,
+    Hue: 360,
+  };
+
   constructor(
     private readonly platform: HomebridgeGpioIR,
     private readonly accessory: PlatformAccessory,
@@ -65,12 +70,6 @@ export class GIRPlatformAccessory {
      */
 
     // Example: add two "motion sensor" services to the accessory
-    const motionSensorOneService = this.accessory.getService('Motion Sensor One Name') ||
-      this.accessory.addService(this.platform.Service.MotionSensor, 'Motion Sensor One Name', 'YourUniqueIdentifier-1');
-
-    const motionSensorTwoService = this.accessory.getService('Motion Sensor Two Name') ||
-      this.accessory.addService(this.platform.Service.MotionSensor, 'Motion Sensor Two Name', 'YourUniqueIdentifier-2');
-
     /**
      * Updating characteristics values asynchronously.
      *
@@ -80,18 +79,6 @@ export class GIRPlatformAccessory {
      * the `updateCharacteristic` method.
      *
      */
-    let motionDetected = false;
-    setInterval(() => {
-      // EXAMPLE - inverse the trigger
-      motionDetected = !motionDetected;
-
-      // push the new value to HomeKit
-      motionSensorOneService.updateCharacteristic(this.platform.Characteristic.MotionDetected, motionDetected);
-      motionSensorTwoService.updateCharacteristic(this.platform.Characteristic.MotionDetected, !motionDetected);
-
-      this.platform.log.debug('Triggering motionSensorOneService:', motionDetected);
-      this.platform.log.debug('Triggering motionSensorTwoService:', !motionDetected);
-    }, 10000);
   }
 
   /**
@@ -143,8 +130,8 @@ export class GIRPlatformAccessory {
 
   async setHue(value: CharacteristicValue) {
     // implement your own code to set the brightness
-    this.exampleStates.Brightness = value as number;
+    this.exampleHue.Hue = value as number;
 
-    this.platform.log.debug('Set Characteristic Brightness -> ', value);
+    this.platform.log.debug('Set Characteristic Hue -> ', value);
   }
 }
