@@ -17,10 +17,6 @@ export class GIRPlatformAccessory {
   private exampleStates = {
     On: false,
     Brightness: 100,
-  };
-
-  private exampleHue = {
-    On: false,
     Hue: 360,
   };
 
@@ -130,7 +126,7 @@ export class GIRPlatformAccessory {
 
   async setHue(value: CharacteristicValue) {
     // implement your own code to set the brightness
-    this.exampleHue.Hue = value as number;
+    this.exampleStates.Hue = value as number;
 
     this.platform.log.debug('Set Characteristic Hue -> ', value);
   }
